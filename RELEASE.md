@@ -4,9 +4,17 @@ This file tracks the tags and the associated changes in the project.
 
 | Version | Date       | Summary                                                                 |
 |---------|------------|-------------------------------------------------------------------------|
+| v1.1 | 2024-08-10 | Added create_test_topics.sh, masked soft_switch/config/sns_config.json added sample jinja2 template to illustrate the expected format and values for it |
 | v1.0 | 2024-08-10 | Added automated tagging and supplemental script to help develop release letter |
 
 ## Summary of Changes
+### v1.1
+
+- Added create_test_topics.sh, masked soft_switch/config/sns_config.json added sample jinja2 template to illustrate the expected format and values for it (185cb7f)
+- Added Jinja2 template for restore_config.yaml and updated README with generation instructions (43ad563)
+- Added topic cleanup for test topics from config (0ba0277)
+- Fixed update_release.py and cleaned up RELEASE.md for v1.0 (3acbd8c)
+
 
 ### v1.0
 
