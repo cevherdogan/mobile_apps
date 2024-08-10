@@ -50,4 +50,7 @@ Daha fazla bilgi için [Simple SNS Test Validation Script README](SIMPLE_TEST_VA
 - **soft_switch/**: Proje dosyalarını içeren dizin.
 - **SIMPLE_TEST_VALIDATION_README.md**: `simple_test_validation.sh` betiği için detaylı kullanım kılavuzu.
 
+## Restore
 
+- **restore_config_template.yaml.j2**: Jinja2 Template - Atanacak değerlere örnek olması mahiyetiyle eklenmiştir. restore_config.yaml .gitignore da CyberSec concept pratigi uzere masked yapilmistir.  
+- **./restore.sh**: restore_config.yaml Topikleri restore eder.
