@@ -1,1 +1,1 @@
-arn:aws:sns:us-east-1:491169136155:test_routable_email_topic1
+arn:aws:sns:us-east-1:491169136155:test_routable_MyFirstTopic

@@ -33,7 +33,6 @@ cleanup_topics_from_config() {
 
 # Run cleanup for both configuration files
 cleanup_topics_from_config "soft_switch/config/sns_config.json"
-cleanup_topics_from_config "sns_config.json"
 
 echo "Cleanup complete."
 
