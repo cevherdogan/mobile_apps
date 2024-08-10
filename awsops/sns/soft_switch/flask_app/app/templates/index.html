@@ -43,32 +43,7 @@
 
     <h1>Manage Subscriptions for a Topic</h1>
     <form method="POST">
-        <label for="topic_arn">Select a Topic:</label>
-        <select name="topic_arn" id="topic_arn" required>
-            <option value="" disabled selected>Select a topic</option>
-            <optgroup label="SMS Topics">
-                {% for topic in sms_topics %}
-                    <option value="{{ topic }}">{{ topic }}</option>
-                {% endfor %}
-            </optgroup>
-            <optgroup label="Email Topics">
-                {% for topic in email_topics %}
-                    <option value="{{ topic }}">{{ topic }}</option>
-                {% endfor %}
-            </optgroup>
-            <optgroup label="Mixed Topics">
-                {% for topic in mixed_topics %}
-                    <option value="{{ topic }}">{{ topic }}</option>
-                {% endfor %}
-            </optgroup>
-            <optgroup label="Uncategorized Topics">
-                {% for topic in uncategorized_topics %}
-                    <option value="{{ topic }}">{{ topic }}</option>
-                {% endfor %}
-            </optgroup>
-        </select>
-
-        <br><br>
+        <input type="hidden" name="topic_arn" value="{{ topic_arn }}">
         <label for="protocol">Protocol:</label><br>
         <input type="radio" id="sms" name="protocol" value="sms" required>
         <label for="sms">SMS</label><br>
