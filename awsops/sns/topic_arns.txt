@@ -1,0 +1,1 @@
+arn:aws:sns:us-east-1:491169136155:MyFirstTopic

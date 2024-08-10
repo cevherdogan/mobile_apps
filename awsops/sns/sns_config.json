@@ -1,0 +1,13 @@
+{
+    "topics": {
+        "MyFirstTopic": {
+            "sms_subscribers": [],
+            "email_subscribers": ["cevherd@gmail.com", "cevherdogan@me.com"]
+        },
+        "MySMSTopic": {
+            "sms_subscribers": ["+14846869923"],
+            "email_subscribers": ["attempted_email@example.com"]
+        }
+    }
+}
+
