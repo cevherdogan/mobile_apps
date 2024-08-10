@@ -10,6 +10,19 @@ This project provides an API for routing messages to specific AWS SNS topics bas
 
 ## Setup
 
+```yaml
+flask_app/
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│   ├── sns_utils.py
+├── config.py
+├── run.py
+├── requirements.txt
+└── README.md
+```
+
+
 1. **Clone the repository:**
 
     ```bash
