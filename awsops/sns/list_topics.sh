@@ -12,7 +12,6 @@ if [[ "$1" == "--help" || "$1" == "-h" ]]; then
     usage
 fi
 
-# Check if profile name is provided, else use default
 PROFILE=${1:-default}
 
 # Validate the AWS profile
