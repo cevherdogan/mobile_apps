@@ -25,4 +25,29 @@ Bu dizin, AWS SNS aboneliklerini ve topic'lerini yönetmek için kullanılan bet
 ```
 
 
+## Unit Testing and Validation
+
+Bu projede, AWS SNS konularını ve aboneliklerini test etmek ve doğrulamak için bir dizi betik bulunmaktadır. Bu betikler, test abonelikleri eklemek, test mesajları göndermek ve SNS yapılandırmalarını doğrulamak için kullanılır.
+
+### Simple Test Validation
+`simple_test_validation.sh` betiği, SNS topic'lerinizi ve aboneliklerinizi test etmek için kullanabileceğiniz otomatik bir test aracıdır. Bu betik, topic'leri listelemenize, yeni abonelikler eklemenize ve test mesajları göndermenize olanak tanır.
+
+Daha fazla bilgi için [Simple SNS Test Validation Script README](SIMPLE_TEST_VALIDATION_README.md) dosyasına göz atın.
+
+### SNS Entegrasyon Testi
+`sns_integration_test.sh` betiği, SNS topic'lerinizi ve aboneliklerinizi kapsamlı bir şekilde test etmek için kullanılır. Bu betik, entegrasyon testleri yaparak SNS yapılandırmalarınızın düzgün çalışıp çalışmadığını kontrol eder.
+
+## Dosya ve Klasör Yapısı
+
+- **add_topic.sh**: SNS topic eklemek için kullanılır.
+- **list_topics.sh**: Mevcut SNS topic'leri listelemek için kullanılır.
+- **delete_topic.sh**: Belirtilen SNS topic'ini silmek için kullanılır.
+- **simple_test_validation.sh**: SNS topic'lerinizi ve aboneliklerinizi test etmek için otomatik bir test betiğidir.
+- **sns_integration_test.sh**: SNS yapılandırmalarınızı kapsamlı bir şekilde test etmek için entegrasyon testi betiğidir.
+- **sns_config.json**: SNS yapılandırmaları için kullanılan JSON dosyasıdır.
+- **topic_arns.txt**: SNS topic ARN'lerini saklamak için kullanılan geçici dosyadır.
+- **sns_integration.log**: Entegrasyon testleri sırasında oluşturulan log dosyasıdır.
+- **soft_switch/**: Proje dosyalarını içeren dizin.
+- **SIMPLE_TEST_VALIDATION_README.md**: `simple_test_validation.sh` betiği için detaylı kullanım kılavuzu.
+
 
