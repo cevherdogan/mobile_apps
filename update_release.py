@@ -2,22 +2,20 @@ import subprocess
 import os
 from datetime import datetime
 
-# Function to get a sorted list of git tags by creation date
 def get_git_tags():
     result = subprocess.run(['git', 'tag', '--sort=-creatordate'], stdout=subprocess.PIPE, check=True)
     tags = result.stdout.decode('utf-8').strip().split('\n')
-    return tags
+    return [tag for tag in tags if tag]  # Filter out any empty strings
 
-# Function to retrieve titles of commits associated with each tag
 def get_tag_titles(tags):
     tag_titles = {}
     for tag in tags:
-        result = subprocess.run(['git', 'show', tag, '--no-patch', '--format=%s'], stdout=subprocess.PIPE, check=True)
-        title = result.stdout.decode('utf-8').strip()
-        tag_titles[tag] = title
+        if tag:  # Ensure tag is not empty
+            result = subprocess.run(['git', 'show', tag, '--no-patch', '--format=%s'], stdout=subprocess.PIPE, check=True)
+            title = result.stdout.decode('utf-8').strip()
+            tag_titles[tag] = title
     return tag_titles
 
-# Function to get commit messages since the last tag
 def get_commit_messages_since_last_tag(last_tag):
     if last_tag:
         result = subprocess.run(['git', 'log', f'{last_tag}..HEAD', '--oneline'], stdout=subprocess.PIPE, check=True)
@@ -27,7 +25,6 @@ def get_commit_messages_since_last_tag(last_tag):
     commits = result.stdout.decode('utf-8').strip().split('\n')
     return commits if commits != [''] else []
 
-# Function to format commit messages for the summary section
 def format_commits_for_summary(commits):
     summary = []
     for commit in commits:
@@ -35,7 +32,6 @@ def format_commits_for_summary(commits):
         summary.append(f"- {message} ({commit_hash})")
     return "\n".join(summary)
 
-# Function to update the RELEASE.md file with the new tag and commits
 def update_release_md(new_tag, commit_summary):
     release_file = 'RELEASE.md'
     today = datetime.today().strftime('%Y-%m-%d')
@@ -71,7 +67,6 @@ def update_release_md(new_tag, commit_summary):
     with open(release_file, 'w') as file:
         file.writelines(content)
 
-# Function to determine the next tag version based on the last tag
 def determine_next_tag(tags):
     if not tags:
         return "v1.0"
@@ -87,12 +82,10 @@ def determine_next_tag(tags):
 
     return f"v{major}.{minor}"
 
-# Function to commit the updated RELEASE.md file
 def commit_release_md(new_tag):
     subprocess.run(['git', 'add', 'RELEASE.md'], check=True)
     subprocess.run(['git', 'commit', '-m', f'Update RELEASE.md for {new_tag}'], check=True)
 
-# Main function to orchestrate the release process
 def main():
     tags = get_git_tags()
 
@@ -103,6 +96,7 @@ def main():
             print(f"{tag}: {title}")
         last_tag = tags[0]
     else:
+        print("No existing tags found.")
         last_tag = None
 
     default_tag = determine_next_tag(tags)
