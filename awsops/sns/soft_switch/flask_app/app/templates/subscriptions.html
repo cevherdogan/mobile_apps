@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Subscriptions</title>
+</head>
+<body>
+    <h1>Subscriptions for {{ topic_arn }}</h1>
+    <ul>
+        {% for subscription in subscriptions %}
+            <li>{{ subscription.Endpoint }} ({{ subscription.Protocol }}) - {{ subscription.SubscriptionArn }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+
