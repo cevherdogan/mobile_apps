@@ -4,11 +4,20 @@ This file tracks the tags and the associated changes in the project.
 
 | Version | Date       | Summary                                                                 |
 |---------|------------|-------------------------------------------------------------------------|
+| v1.3.0 | 2024-08-11 | Added optional logging to Lambda function and enhanced error handling. Default logging set to False. Updated memory and timeout settings in deployment script. |
 | v1.2 | 2024-08-10 | Hangi Topik de hangi üyelik var problem vardı çözüldü |
 | v1.1 | 2024-08-10 | Added create_test_topics.sh, masked soft_switch/config/sns_config.json added sample jinja2 template to illustrate the expected format and values for it |
 | v1.0 | 2024-08-10 | Added automated tagging and supplemental script to help develop release letter |
 
 ## Summary of Changes
+### v1.3.0
+
+- Added optional logging to Lambda function and enhanced error handling. Default logging set to False. Updated memory and timeout settings in deployment script. (f9eed89)
+- TDD icin basit bir lambda fonksiyonu ve gerekli scriptler (5dc8046)
+- Reviewed mobile app dwqev tech stack to pick from. (4590e39)
+- Added release to hold releases in md - TODO: Automate using CLI (c697f38)
+- Added curl tests for the implemented functionalities, exposed through REST web service endpoint (8510d87)
+
 ### v1.2
 
 - Hangi Topik de hangi üyelik var problem vardı çözüldü (efe9d57)
