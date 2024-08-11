@@ -7,3 +7,7 @@ git commit -m "Add coverage report"
 git push origin gh-pages
 
 
+open https://cevherdogan.github.io/mobile_apps/
+
+
+
