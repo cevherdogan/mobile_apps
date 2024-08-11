@@ -1,0 +1,16 @@
+aws_account_id: "{{ aws_account_id }}"
+region: "{{ region }}"
+aws_profile: "{{ aws_profile }}"
+
+topics:
+  cloudruple-wp-dev-notification-topic:
+    email_subscribers:
+      {% for email in cloudruple_wp_dev_notification_topic_emails %}
+      - "{{ email }}"
+      {% endfor %}
+  cpptopic:
+    sms_subscribers:
+      {% for phone in cpptopic_sms_subscribers %}
+      - "{{ phone }}"
+      {% endfor %}
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNS Topic Poster and Subscription Manager</title>
+</head>
+<body>
+    <h1>Post a Message to an SNS Topic</h1>
+    <form method="POST">
+        <label for="topic_arn">Select a Topic:</label>
+        <select name="topic_arn" id="topic_arn" required>
+            <option value="" disabled selected>Select a topic</option>
+            <optgroup label="SMS Topics">
+                {% for topic in sms_topics %}
+                    <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Email Topics">
+                {% for topic in email_topics %}
+                    <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Mixed Topics">
+                {% for topic in mixed_topics %}
+                    <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+            </optgroup>
+            <optgroup label="Uncategorized Topics">
+                {% for topic in uncategorized_topics %}
+                    <option value="{{ topic }}">{{ topic }}</option>
+                {% endfor %}
+            </optgroup>
+        </select>
+
+        <br><br>
+        <label for="message">Message:</label>
+        <textarea name="message" id="message" rows="4" cols="50"></textarea>
+
+        <br><br>
+        <button type="submit" name="action" value="publish">Post Message</button>
+    </form>
+
+    <h1>Manage Subscriptions for a Topic</h1>
+    <form method="POST">
+        <input type="hidden" name="topic_arn" value="{{ topic_arn }}">
+        <label for="protocol">Protocol:</label><br>
+        <input type="radio" id="sms" name="protocol" value="sms" required>
+        <label for="sms">SMS</label><br>
+        <input type="radio" id="email" name="protocol" value="email" required>
+        <label for="email">Email</label><br><br>
+        
+        <label for="endpoint">Endpoint (phone number/email address):</label>
+        <input type="text" name="endpoint" id="endpoint" required>
+
+        <br><br>
+        <button type="submit" name="action" value="subscribe">Subscribe</button>
+        <button type="submit" name="action" value="unsubscribe">Unsubscribe</button>
+    </form>
+
+    <br><br>
+    <a href="/subscriptions?topic_arn={{ topic_arn }}">View Subscriptions</a>
+
+    {% if response %}
+        <h2>Response:</h2>
+        <pre>{{ response }}</pre>
+    {% endif %}
+</body>
+</html>
+
